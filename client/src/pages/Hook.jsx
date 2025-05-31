@@ -9,8 +9,34 @@ export default function Hook() {
 
   const { register, handleSubmit, formState: { errors } } = useForm()
 
-  const onSubmit = (data) => {
-    console.log("Form Data:", data)
+  const onSubmit = async (data) => {
+    try {
+      const payload = {
+        type: formType,
+        Options: data.Options,
+        details: data.details
+      }
+
+      const response = await fetch("http://localhost:4000/api/help/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        alert("Submitted successfully!")
+        navigate("/dashboard")
+      } else {
+        alert(result.message || "Submission failed.")
+      }
+    } catch (error) {
+      console.error("Error submitting help post:", error)
+      alert("Something went wrong while submitting.")
+    }
   }
 
   return (
@@ -38,9 +64,6 @@ export default function Hook() {
       </h2>
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-      
-
-
         {/* Category */}
         <div style={{ marginBottom: "20px" }}>
           <label htmlFor="options" style={{ fontWeight: "500" }}>Select a Category</label><br />

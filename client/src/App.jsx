@@ -6,6 +6,8 @@ import EmailVerify from "./pages/EmailVerify";
 import ResetPassword from "./pages/ResetPassword";
 import Help from "./pages/Help";
 import Hook from './pages/Hook';
+import Dashboard from "./pages/Dashboard";
+import PostDetails from "./pages/PostDetails";
 
 const App = () => {
   return (
@@ -17,7 +19,8 @@ const App = () => {
         <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/help' element={<Help />} />
         <Route path='/hook' element={<Hook/>} />
-        
+        <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='/post/:id' element={<PostDetails />} />
       </Routes>
       
     </div>
