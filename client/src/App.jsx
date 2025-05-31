@@ -8,6 +8,8 @@ import Help from "./pages/Help";
 import Hook from './pages/Hook';
 import Dashboard from "./pages/Dashboard";
 import PostDetails from "./pages/PostDetails";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 const App = () => {
   return (
@@ -21,6 +23,9 @@ const App = () => {
         <Route path='/hook' element={<Hook/>} />
         <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/post/:id' element={<PostDetails />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path="/about" element={<About />} />
+
       </Routes>
       
     </div>

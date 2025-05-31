@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -12,9 +13,11 @@ const Hero = () => {
           Connect with people in need or become a volunteer to create change in your community.
         </p>
         <div className="mt-8 flex justify-center gap-4 flex-wrap">
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition">
-            Get Help
-          </button>
+          <Link to="/help">
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition">
+              Get Help
+            </button>
+          </Link>
           <button className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg text-lg font-medium hover:bg-blue-50 transition">
             Become a Volunteer
           </button>
